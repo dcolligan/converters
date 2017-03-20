@@ -13,7 +13,6 @@ import pysam
 import ga4gh.converters.converters as converters
 import ga4gh.server.backend as backend
 import ga4gh.server.datarepo as datarepo
-import tests.paths as paths
 
 import ga4gh.client.client as client
 import ga4gh.common.utils as utils
@@ -24,7 +23,8 @@ class TestSamConverter(unittest.TestCase):
     Tests for the GA4GH reads API -> SAM conversion.
     """
     def setUp(self):
-        dataRepository = datarepo.SqlDataRepository(paths.testDataRepo)
+        registryLocation = 'registry.db'
+        dataRepository = datarepo.SqlDataRepository(registryLocation)
         dataRepository.open(datarepo.MODE_READ)
         self._backend = backend.Backend(dataRepository)
         self._client = client.LocalClient(self._backend)
