@@ -6,3 +6,5 @@
 ga4gh_common
 ga4gh_schemas
 ga4gh_client
+
+pysam
